@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/login.css">
     <title>Login</title>
 </head>
 <body>
+  <h2 class="title">Iniciar sesión</h2>
+
+    <form class="form login">
     
+        <label class="form__label">
+          Correo
+          <input required type="email" name="email" />
+        </label>
+    
+        <label class="form__label">
+          Contraseña
+          <input required type="password" name="password" />
+        </label>
+    
+        <button type="submit">
+          Iniciar Sesión
+        </button>
+      </form>
+
+      <a href="register.html">No tengo una cuenta</a>
 </body>
 </html>
