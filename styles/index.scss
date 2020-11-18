@@ -1,0 +1,29 @@
+body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #EAF8FF;
+  }
+
+.info{
+    background-color: deepskyblue;
+    height: 30%;
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 20px;
+
+    &__description{
+        width: 100%;
+        background-color: lawngreen;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    img{
+        height: 100%;
+        padding: 16px;
+    }
+}
