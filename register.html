@@ -3,35 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/register.css">
     <title>Document</title>
 </head>
 <body>
+  <h2 class="title">Registro</h2>
+
     <form class="form register">
-        <h2 class="form__title">Registro</h2>
 
         <label class="form__label">
             Nombre
-            <input required type="text" name="name" />
+            <input required type="text" name="name" placeholder="Nombre"/>
           </label>
 
         <label class="form__label">
             Teléfono
-            <input required type="number" name="number" />
+            <input required type="number" name="number" placeholder="Teléfono"/>
           </label>
     
         <label class="form__label">
           Correo
-          <input required type="email" name="email" />
+          <input required type="email" name="email" placeholder="Correo" />
         </label>
     
         <label class="form__label">
           Contraseña
-          <input required type="password" name="password" />
+          <input required type="password" name="password" placeholder="Contraseña" />
         </label>
 
         <label class="form__label">
             Confirmar Contraseña
-            <input required type="password" name="password" />
+            <input required type="password" name="password" placeholder="Confirmar contraseña" />
           </label>
     
         <button type="submit">
