@@ -7,8 +7,6 @@ window.addEventListener('load', function () {
     // referencia a la colección usuarios
     const usersRef = firebase.database().ref('semana14');
     
-    const authFirebase = firebase.auth();
-
     usersRef.doc(uid)
     .get()
     .then(function (snapshot) {
@@ -23,9 +21,9 @@ window.addEventListener('load', function () {
     });
 
 
-    const btnReturn = document.querySelector('.btnReturn');
+    const logOut = document.querySelector('.info__LogOut');
 
-    btnReturn.addEventListener('click', function () {
-        window.location.href = 'store.html';
+    logOut.addEventListener('click', function () {
+        window.location.href = 'login.html';
     });
 });
