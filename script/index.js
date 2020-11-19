@@ -10,11 +10,17 @@ window.addEventListener('load', function () {
             element => {
                 value = element.val();
                 paintContact = new Contact(value);
-                console.log(userID);
                 console.log(value.uid);
-                if(value.uid === userID){
-                    contacts__list.appendChild(paintContact.render());
-                }
+                firebase.auth().onAuthStateChanged(function(user) {
+                    if(user){
+                        if(user.uid===value.uid){
+                            contacts__list.appendChild(paintContact.render());
+                        }
+                    }
+                });
+                
+                
+                
             });
     });
 
