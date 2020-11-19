@@ -1,4 +1,5 @@
 
+let userID;
 firebase.auth().onAuthStateChanged(function(user) {
     if(user) {
       // si el usuario existe quiere decir que inició sesión, se registró o ya tenía sesión iniciada
@@ -9,6 +10,7 @@ firebase.auth().onAuthStateChanged(function(user) {
           const data = doc.val();
           const userInfo = data;
           console.log(data);
+          userID = user.uid;
 
           
         const info__name = document.querySelector('.info__name');
@@ -28,7 +30,6 @@ firebase.auth().onAuthStateChanged(function(user) {
   });
   
   // cerrar sesión
-
   const logOut = document.querySelector('.info__LogOut');
 
   logOut.addEventListener('click', function(event) {

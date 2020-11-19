@@ -1,21 +1,22 @@
 window.addEventListener('load', function () {
 
+    const contacts__list = document.querySelector('.contacts__list');
 
+    const contacts = firebase.database().ref('semana14/contacts');
 
-    //referencia a la base de datos
-
-    // referencia a la colección usuarios
-    const auth = firebase.auth();
-    /*const usersRef = firebase.database().ref('semana14/users'+uid);
-
-    usersRef
-    .get()
-    .then(function (snapshot) {
-
-        const user = snapshot.data();
-
-
-    });**/
+    contacts.on('value', function (elem) {
+        let paintContact;
+        elem.forEach(
+            element => {
+                value = element.val();
+                paintContact = new Contact(value);
+                console.log(userID);
+                console.log(value.uid);
+                if(value.uid === userID){
+                    contacts__list.appendChild(paintContact.render());
+                }
+            });
+    });
 
 
     const logOut = document.querySelector('.info__LogOut');
@@ -34,6 +35,30 @@ window.addEventListener('load', function () {
     const modal__close = modal.querySelector('.modal__close');
     modal__close.addEventListener('click',function (params) {
         modal.classList.add('hidden');
+    });
+
+    const add = document.querySelector('.add');
+
+    add.addEventListener('submit',function (params) {
+        params.preventDefault();
+
+        const name = add.name.value;
+        const phone = add.phone.value;
+
+        const contactsRef = firebase.database().ref('semana14/contacts').push();
+
+        const newContact = {
+            name : name,
+            phone : phone,
+            uid : userID,
+            id : contactsRef.key,
+            
+        }
+
+        contactsRef.set(newContact).then(function (params) {
+            add.name.value = '';
+            add.phone.value = '';
+        });
     });
     
 });
