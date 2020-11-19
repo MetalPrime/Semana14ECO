@@ -23,4 +23,17 @@ window.addEventListener('load', function () {
     logOut.addEventListener('click', function () {
         window.location.href = 'login.html';
     });
+
+    const contacts__add = document.querySelector('.contacts__add');
+    const modal = document.querySelector('.modal');
+
+    contacts__add.addEventListener('click', function(){
+        modal.classList.remove('hidden');
+    });
+
+    const modal__close = modal.querySelector('.modal__close');
+    modal__close.addEventListener('click',function (params) {
+        modal.classList.add('hidden');
+    });
+    
 });

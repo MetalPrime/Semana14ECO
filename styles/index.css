@@ -279,6 +279,10 @@ body {
   color: white;
 }
 
+.contacts__info--blue {
+  background-color: blue;
+}
+
 .title {
   background-color: blue;
   color: white;
@@ -304,5 +308,58 @@ body {
 
 .title p:first-of-type {
   font-size: 20px;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -250px;
+  /* Negative half of height. */
+  margin-left: -250px;
+  /* Negative half of width. */
+  width: 500px;
+  height: 500px;
+  background-color: gold;
+}
+
+.modal__title {
+  margin: auto 0;
+}
+
+.form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.form__label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 auto;
+}
+
+.form__label input {
+  margin-bottom: 16px;
+}
+
+.form button {
+  background-color: blue;
+  color: white;
+  padding: 8px 32px;
+  margin: 20px auto;
+}
+
+.hidden {
+  display: none;
 }
 /*# sourceMappingURL=index.css.map */

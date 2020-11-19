@@ -20,11 +20,35 @@
     <article class="contacts">
         <section class="contacts__info">
             <h3>Mis contactos</h3>
-            <button>+</button>
+            <button class="contacts__add">+</button>
         </section>
         <section class="contacts__list">
 
         </section>
+    </article>
+
+    <article class="modal hidden">
+      <section class="contacts__info contacts__info--blue">
+        <p class="modal__title ">Agregar Contacto</p>
+        <button class="modal__close">X</button>
+      </section>
+
+        <form class="form add">
+    
+            <label class="form__label">
+              Nombre
+              <input required type="email" name="email" placeholder="Nombre"/>
+            </label>
+        
+            <label class="form__label">
+              Teléfono
+              <input required type="password" name="password" placeholder="Teléfono" />
+            </label>
+        
+            <button type="submit">
+              Agregar
+            </button>
+          </form>
     </article>
 
 </body>
