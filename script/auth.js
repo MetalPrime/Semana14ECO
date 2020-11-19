@@ -3,20 +3,21 @@ firebase.auth().onAuthStateChanged(function(user) {
     if(user) {
       // si el usuario existe quiere decir que inició sesión, se registró o ya tenía sesión iniciada
   
-      usersRef.doc(user.uid).get().then(function (doc) {
+      console.log(user.uid);
+      firebase.database().ref('semana14/users/' + user.uid).on('value',function (doc) {
         if(doc.exists) {
-          const data = doc.data();
-          userInfo = data;
-  
-          const url = `profile.html?${data.id}`;
-          authProfile.setAttribute('href',url);
-  
-          if(data.admin) {
-            const showAdmin = document.querySelectorAll('.showadmin');
-            showAdmin.forEach(function(elem) {
-              elem.classList.remove('hidden');
-            });
-          }
+          const data = doc.val();
+          const userInfo = data;
+          console.log(data);
+
+          
+        const info__name = document.querySelector('.info__name');
+        const info__email = document.querySelector('.info__email');
+        const info__phone = document.querySelector('.info__phone');
+
+        info__name.innerHTML = `${userInfo.name}`;
+        info__email.innerHTML = `${userInfo.email}`;
+        info__phone.innerHTML = `${userInfo.number}`;
         }
       });
   
