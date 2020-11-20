@@ -4,25 +4,35 @@ window.addEventListener('load', function () {
 
     const contacts = firebase.database().ref('semana14/contacts');
 
-    contacts.on('value', function (elem) {
-        let paintContact;
-        elem.forEach(
-            element => {
-                value = element.val();
-                paintContact = new Contact(value);
-                console.log(value.uid);
-                firebase.auth().onAuthStateChanged(function(user) {
-                    if(user){
-                        if(user.uid===value.uid){
-                            contacts__list.appendChild(paintContact.render());
-                        }
-                    }
-                });
-                
-                
-                
-            });
+    let idUser;
+    firebase.auth().onAuthStateChanged(function(user) {
+        if(user){
+            idUser = user.uid;
+            callContacts();
+        }
     });
+
+    function callContacts(){
+        contacts.on('value', function (elem) {
+            let paintContact;
+            contacts__list.innerHTML = '';
+            elem.forEach(
+                element => {
+                    value = element.val();
+                    paintContact = new Contact(value);
+                    console.log(value.uid);
+    
+                            if(idUser===value.uid){
+                                contacts__list.appendChild(paintContact.render());
+                            }
+                        
+                    
+                    
+                    
+                });
+        });
+    }
+    
 
 
     const logOut = document.querySelector('.info__LogOut');
@@ -44,6 +54,7 @@ window.addEventListener('load', function () {
     });
 
     const add = document.querySelector('.add');
+
 
     add.addEventListener('submit',function (params) {
         params.preventDefault();

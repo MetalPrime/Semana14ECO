@@ -2,7 +2,7 @@ class Contact {
     constructor(contact){
         this.contact = contact;
         this.id = this.contact.id;
-        
+        console.log(this.id);
     }
     
     render = () =>{
@@ -11,6 +11,7 @@ class Contact {
         component.classList.add('contact');
 
         let btnDelete = document.createElement('button');
+        btnDelete.innerHTML = 'X';
         btnDelete.classList.add('contact__delete');
 
         component.innerHTML = `
@@ -22,10 +23,12 @@ class Contact {
 
         component.appendChild(btnDelete);
 
-        btnDelete.addEventListener('click',function (params) {
+        btnDelete.addEventListener('click', () => {
             firebase.database().ref(`semana14/contacts/${this.id}`).remove();
+            console.log(this.id);
         })
 
+        console.log(this.id+"sdfgdf");
         return component;
 
     }
